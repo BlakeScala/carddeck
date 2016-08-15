@@ -1,20 +1,17 @@
 $(document).ready(function() {
-  $("#groceries").submit(function(event) {
 
-    var items = [$("#item1").val() , $("#item2").val() , $("#item3").val() , $("#item4").val() , $("#item5").val() ];
+  var values = ["2","3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
+  var suits = ["Diamonds", "Spades", "Clubs", "Hearts"];
 
-    var alphabets = items.map(function(item) {
-      return item.toUpperCase();
+  var cards = [];
+
+  suits.forEach(function(suit){
+    values.forEach(function(value){
+    cards.push(value + " of " + suit);
     });
+  });
 
-    alphabets.sort();
-
-    alphabets.forEach(function(alphabet){
-      $("#output").append("<li>" + alphabet + "</li>");
-    });
-
-    event.preventDefault();
-    $("#groceries").fadeOut();
-
+  cards.forEach(function(card){
+    $("#output").append("<li>" + card + "</li>");
   });
 });
